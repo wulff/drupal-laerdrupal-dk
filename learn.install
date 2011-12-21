@@ -1,0 +1,387 @@
+<?php
+/**
+ * @file
+ * Install file for the Lær Drupal installation profile.
+ */
+
+/* --- HOOKS ---------------------------------------------------------------- */
+
+/**
+ * Implementation of hook_install().
+ */
+function learn_install() {
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <ul> <ol> <li> <dl> <dt> <dd> <img> <p> <pre> <div>',
+          'filter_html_help' => 0,
+          'filter_html_nofollow' => 0,
+        ),
+      ),
+      // URL filter.
+      'geshifilter' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Media filter.
+      'media_filter' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 3,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $default_theme = variable_get('theme_default', 'learn');
+  $admin_theme = 'seven';
+  $values = array(
+    array(
+      'module' => 'menu',
+      'delta' => 'menu-learn-user',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'user_first',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'user-menu',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'user_second',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'book',
+      'delta' => 'navigation',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_first',
+      'pages' => "contact\nsearch/*\nuser\nuser/*",
+      'title' => '',
+      'cache' => 5,
+    ),
+    array(
+      'module' => 'locale',
+      'delta' => 'language',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'sidebar_first',
+      'pages' => "contact\nsearch/*\nuser\nuser/*",
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'navigation',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 2,
+      'region' => 'sidebar_first',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 3,
+      'region' => 'sidebar_first',
+      'pages' => "contact\nsearch/*\nuser\nuser/*",
+      'title' => '',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_second',
+      'pages' => "contact\nsearch/*\nuser\nuser/*",
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'comment',
+      'delta' => 'recent',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'sidebar_second',
+      'pages' => "contact\nuser\nuser/*",
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'node',
+      'delta' => 'recent',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'sidebar_second',
+      'pages' => "contact\nuser\nuser/*",
+      'title' => '',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'workbench',
+      'delta' => 'block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 2,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'node',
+      'delta' => 'syndicate',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'footer_first',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'system',
+      'delta' => 'powered-by',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'footer_second',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  db_insert('block_role')
+    ->fields(array('module' => 'menu', 'delta' => 'menu-learn-user', 'rid' => 1))
+    ->execute();
+
+  // enable default permissions for system roles
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access comments', 'access content', 'access site-wide contact form', 'search content', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access comments', 'access content', $filtered_html_permission));
+
+  // create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // assign user 1 the "administrator" role
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  theme_enable(array('learn', 'seven'));
+  $variables = array(
+    'admin_theme' => 'seven',
+    'admin_menu_tweak_modules' => 1,
+    'cache' => 1,
+    'cache_lifetime' => 300,
+    'clean_url' => 1,
+    'configurable_timezones' => 0,
+    'date_first_day' => 1,
+    'date_format_long' => 'l, j. F Y - G:i',
+    'date_format_medium' => 'D, d/m/Y - H:i',
+    'date_format_short' => 'd/m/Y - H:i',
+    'file_public_path' => 'sites/default/files/learn',
+    'geshifilter_code_container' => 3,
+    'geshifilter_css_mode' => 2,
+    'geshifilter_enable_keyword_urls' => 0,
+    'geshifilter_language_enabled_apache' => 1,
+    'geshifilter_language_enabled_c' => 0,
+    'geshifilter_language_enabled_cpp' => 0,
+    'geshifilter_language_enabled_css' => 1,
+    'geshifilter_language_enabled_drupal5' => 0,
+    'geshifilter_language_enabled_drupal6' => 0,
+    'geshifilter_language_enabled_html5' => 0,
+    'geshifilter_language_enabled_ini' => 1,
+    'geshifilter_language_enabled_java' => 0,
+    'geshifilter_language_enabled_javascript' => 0,
+    'geshifilter_language_enabled_mysql' => 1,
+    'geshifilter_language_enabled_php' => 1,
+    'geshifilter_language_enabled_puppet' => 1,
+    'geshifilter_language_enabled_python' => 0,
+    'geshifilter_language_enabled_robots' => 1,
+    'geshifilter_language_enabled_ruby' => 1,
+    'geshifilter_tags' => '<pre>',
+    'geshifilter_tag_styles' => array(1 => 1, 2 => 0, 4 => 0, 8 => 0),
+    'geshifilter_use_highlight_string_for_php' => 0,
+    'node_admin_theme' => 1,
+    'page_cache_maximum_age' => 3600,
+    'page_compression' => 0,
+    'pathauto_ignore_words' => 'ad, af, alle, alt, anden, at, blev, blive, bliver, da, de, dem, den, denne, der, deres, det, dette, dig, din, disse, dog, du, efter, eller, en, end, er, et, for, fra, ham, han, hans, har, havde, have, hende, hendes, her, hos, hun, hvad, hvis, hvor, i, ikke, ind, jeg, jer, jo, kunne, man, mange, med, meget, men, mig, min, mine, mit, mod, ned, noget, nogle, nu, når, og, også, om, op, os, over, på, selv, sig, sin, sine, sit, skal, skulle, som, sådan, thi, til, ud, under, var, vi, vil, ville, vor, være, været',
+    'pathauto_node_learn_book_page_pattern' => 'bog/[node:book:root:title]/[node:book:parent:title]/[node:title]',
+    'pathauto_node_pattern' => '[node:title]/[node:language]',
+    'pathauto_node_learn_book_da_pattern' => 'bog/[node:learn-book-hierarchy]',
+    'pathauto_node_learn_book_en_pattern' => 'book/[node:learn-book-hierarchy]',
+    'pathauto_node_learn_story_da_pattern' => 'nyhed/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]/[node:title]',
+    'pathauto_node_learn_story_en_pattern' => 'news/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]/[node:title]',
+    'pathauto_node_learn_page_da_pattern' => 'side/[node:title]',
+    'pathauto_node_learn_page_en_pattern' => 'page/[node:title]',
+    'pathauto_punctuation_slash' => 2, // to make custom book token work
+    'pathauto_transliterate' => 1,
+    'pathauto_user_pattern' => 'profil/[user:name]',
+    'theme_default' => 'learn',
+    'user_register' => USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL,
+  );
+  foreach ($variables as $key => $variable) {
+    variable_set($key, $variable);
+  }
+
+  // get rid of default book content type
+  node_type_delete('book');
+  variable_del('node_options_book');
+
+  // configure ckeditor
+  $formats = array(
+    array(
+      'format' => 'filtered_html',
+      'editor' => 'ckeditor',
+      'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:0;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"da";s:7:"buttons";a:3:{s:7:"default";a:9:{s:4:"Bold";i:1;s:6:"Italic";i:1;s:12:"BulletedList";i:1;s:12:"NumberedList";i:1;s:4:"Link";i:1;s:6:"Unlink";i:1;s:10:"Blockquote";i:1;s:6:"Source";i:1;s:5:"Table";i:1;}s:5:"geshi";a:8:{s:12:"Geshi-apache";i:1;s:9:"Geshi-css";i:1;s:9:"Geshi-ini";i:1;s:11:"Geshi-mysql";i:1;s:9:"Geshi-php";i:1;s:12:"Geshi-puppet";i:1;s:12:"Geshi-robots";i:1;s:10:"Geshi-ruby";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:0;s:23:"apply_source_formatting";i:0;s:27:"paste_auto_cleanup_on_paste";i:0;s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
+    ),
+    array(
+      'format' => 'plain_text',
+      'editor' => '',
+      'settings' => '',
+    ),
+  );
+
+  $query = db_insert('wysiwyg')->fields(array('format', 'editor', 'settings'));
+  foreach ($formats as $format) {
+    $query->values($format);
+  }
+  $query->execute();
+
+  // fix default contact category
+  db_update('contact')
+    ->fields(array(
+      'category' => 'Feedback',
+      'recipients' => 'info@laerdrupal.dk',
+    ))
+    ->condition('cid', 1, '=')
+    ->execute();
+
+  // add learn_large file display
+  db_insert('file_display')
+    ->fields(array('name', 'weight', 'status', 'settings'))
+    ->values(array('image__media_large__file_image', 5, 1, 'a:1:{s:11:"image_style";s:11:"learn_large";}'))
+    ->execute();
+
+  // make main menu translatable
+  db_update('menu_custom')->fields(array('i18n_mode' => 5))->condition('menu_name', 'main-menu', '=')->execute();
+  // TODO: update menu-learn-user as well
+
+  // apply extra settings for language fields
+  $bundle_settings = variable_get('field_bundle_settings');
+  foreach (array('learn_book', 'learn_page', 'learn_story') as $bundle) {
+    $bundle_settings['node'][$bundle]['extra_fields']['display']['language'] = array(
+      'default' => array(
+        'weight' => '0',
+        'visible' => false,
+      ),
+      'teaser' => array(
+        'weight' => '0',
+        'visible' => false,
+      ),
+    );
+  }
+  variable_set('field_bundle_settings', $bundle_settings);
+
+  // final cleanup
+  node_types_rebuild();
+  menu_rebuild();
+}
