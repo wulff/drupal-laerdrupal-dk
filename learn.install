@@ -361,10 +361,6 @@ function learn_install() {
     ->values(array('image__media_large__file_image', 5, 1, 'a:1:{s:11:"image_style";s:11:"learn_large";}'))
     ->execute();
 
-  // make main menu translatable
-  db_update('menu_custom')->fields(array('i18n_mode' => 5))->condition('menu_name', 'main-menu', '=')->ex
-  // TODO: update menu-learn-user as well
-
   // apply extra settings for language fields
   $bundle_settings = variable_get('field_bundle_settings');
   foreach (array('learn_book', 'learn_page', 'learn_story') as $bundle) {

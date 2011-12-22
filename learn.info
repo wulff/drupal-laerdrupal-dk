@@ -38,6 +38,7 @@ dependencies[] = i18n_menu
 dependencies[] = i18n_node
 dependencies[] = i18n_select
 dependencies[] = i18n_string
+dependencies[] = i18n_variable
 dependencies[] = l10n_update
 dependencies[] = libraries
 dependencies[] = media
@@ -61,10 +62,12 @@ dependencies[] = learn_utility
 
 ; features
 
-learn_features[] = learn_page
 learn_features[] = learn_book
+learn_features[] = learn_page
+learn_features[] = learn_screenshot
 learn_features[] = learn_story
 learn_features[] = learn_web
+learn_features[] = learn_tags
 
 ; files
 
