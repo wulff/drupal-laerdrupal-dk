@@ -16,13 +16,13 @@ function learn_web_menu_default_menu_custom() {
     'title' => 'Hovedmenu',
     'description' => 'Menuen <em>Main</em> bruges på mange sites til at vise sitets overordnede sektioner, typisk i en navigationsbjælke i toppen af siden.',
     'language' => 'und',
-    'i18n_mode' => '5',
+    'i18n_mode' => '0',
   );
   // Exported menu: menu-learn-user
   $menus['menu-learn-user'] = array(
     'menu_name' => 'menu-learn-user',
     'title' => 'User',
-    'description' => '',
+    'description' => 'Indeholder utility-links som vises til brugere af mobiludgaven af sitet.',
     'language' => 'und',
     'i18n_mode' => '5',
   );
@@ -32,11 +32,12 @@ function learn_web_menu_default_menu_custom() {
     'title' => 'User menu',
     'description' => 'Menuen <em>Bruger</em> indeholder links relateret til brugerens konto samt linket \'Log ud\'.',
     'language' => 'und',
-    'i18n_mode' => '0',
+    'i18n_mode' => '5',
   );
   // Translatables
   // Included for use with string extractors like potx.
   t('Hovedmenu');
+  t('Indeholder utility-links som vises til brugere af mobiludgaven af sitet.');
   t('Menuen <em>Bruger</em> indeholder links relateret til brugerens konto samt linket \'Log ud\'.');
   t('Menuen <em>Main</em> bruges på mange sites til at vise sitets overordnede sektioner, typisk i en navigationsbjælke i toppen af siden.');
   t('User');
