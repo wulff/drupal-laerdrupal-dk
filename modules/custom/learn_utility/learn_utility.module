@@ -16,6 +16,7 @@ function learn_utility_menu() {
     'title' => 'humans.txt',
     'page callback' => 'learn_utility_humanstxt',
     'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
   );
 
   return $items;
