@@ -25,7 +25,7 @@ projects[entitycache][subdir] = contrib
 projects[entitycache][version] = 1.1
 
 projects[features][subdir] = contrib
-projects[features][version] = 1.0-beta4
+projects[features][version] = 1.0-beta5
 
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.x-dev
@@ -59,7 +59,7 @@ projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.0
 
 projects[strongarm][subdir] = contrib
-projects[strongarm][version] = 2.0-beta4
+projects[strongarm][version] = 2.0-beta5
 
 projects[token][subdir] = contrib
 projects[token][version] = 1.0-beta7
@@ -71,7 +71,7 @@ projects[variable][subdir] = contrib
 projects[variable][version] = 1.1
 
 projects[views][subdir] = contrib
-projects[views][version] = 3.0-rc3
+projects[views][version] = 3.0
 
 projects[workbench][subdir] = contrib
 projects[workbench][version] = 1.1
