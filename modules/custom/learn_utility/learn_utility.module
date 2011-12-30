@@ -7,6 +7,21 @@
 /* --- HOOKS ---------------------------------------------------------------- */
 
 /**
+ * Implements hook_menu().
+ */
+function learn_utility_menu() {
+  $items = array();
+
+  $items['humans.txt'] = array(
+    'title' => 'humans.txt',
+    'page callback' => 'learn_utility_humanstxt',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/**
  * Implements hook_token_info().
  */
 function learn_utility_token_info() {
@@ -69,6 +84,25 @@ function learn_utility_wysiwyg_plugin($editor, $version) {
         'load' => TRUE,
       ),
     );
+  }
+}
+
+/* --- CALLBACKS ------------------------------------------------------------ */
+
+/**
+ * Menu callback; display the humans.txt file if it exists.
+ */
+function learn_utility_humanstxt() {
+  $path = drupal_get_path('theme', 'learn');
+  $file = $path .'/humans.txt';
+
+  if (file_exists($file) && $content = file_get_contents($file)) {
+    drupal_add_http_header('Content-type', 'text/plain');
+    print $content;
+    exit;
+  }
+  else {
+    return drupal_not_found();
   }
 }
 

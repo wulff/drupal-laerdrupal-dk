@@ -1,0 +1,25 @@
+/* TEAM */
+
+Head squirrel: Morten Wulff
+Contact: wulff@ratatosk.net
+Twitter: @nidhug
+From: Copenhagen, Denmark
+
+Ratatosk logo: Theis Jensen
+Site: http://www.theisina.dk/
+From: Holbæk, Denmark
+
+/* THANKS */
+
+Omega base theme: Jake Strawn
+Twitter: @himerus
+From: New Hampshire, USA
+
+/* SITE */
+
+Last update: 2011/12/28
+Language: Danish / English
+Doctype: HTML5
+CMS: Drupal
+Software: TextMate, Vim, Acorn, Selenium, Puppet
+Hosting: Linode

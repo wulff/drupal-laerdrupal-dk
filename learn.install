@@ -25,7 +25,7 @@ function learn_install() {
           'filter_html_nofollow' => 0,
         ),
       ),
-      // URL filter.
+      // GeSHi filter.
       'geshifilter' => array(
         'weight' => 1,
         'status' => 1,
