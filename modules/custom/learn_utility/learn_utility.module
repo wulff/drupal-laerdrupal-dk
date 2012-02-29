@@ -25,6 +25,7 @@ function learn_utility_menu() {
 /**
  * Implements hook_token_info().
  */
+/*
 function learn_utility_token_info() {
   $info['tokens']['node']['learn-book-hierarchy'] = array(
     'name' => t('Book hierarchy'),
@@ -33,10 +34,12 @@ function learn_utility_token_info() {
 
   return $info;
 }
+*/
 
 /**
  * Implements hook_token().
  */
+/*
 function learn_utility_tokens($type, $tokens, $data = array(), $options = array()) {
   $replacements = array();
 
@@ -59,6 +62,7 @@ function learn_utility_tokens($type, $tokens, $data = array(), $options = array(
 
   return $replacements;
 }
+*/
 
 /**
  * Implements hook_wysiwyg_plugin().

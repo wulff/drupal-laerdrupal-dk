@@ -60,7 +60,7 @@ function learn_system_powered_by() {
 //  $path = drupal_get_path('theme', 'learn') . '/images/cc-by-nc-sa.png';
 //  $image = theme('image', array('path' => $path, 'width' => 80, 'height' => 15, 'alt' => 'CC-BY-NC-SA'));
 
-  $output .= '<p>' . t('© 2011 <a href="@ratatosk">Ratatosk</a>. Powered by <a href="@poweredby">Drupal</a>. Drupal is a registered trademark of Dries Buytaert.', array('@ratatosk' => 'http://ratatosk.net', '@poweredby' => 'http://drupal.org')) . '</p>';
+  $output .= '<p>' . t('© 2012 <a href="@ratatosk">Ratatosk</a>. Powered by <a href="@poweredby">Drupal</a>. Drupal is a registered trademark of Dries Buytaert.', array('@ratatosk' => 'http://ratatosk.net', '@poweredby' => 'http://drupal.org')) . '</p>';
   $output .= '<p>' . t('This work is licensed under a <a href="@cc">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.', array('@cc' => 'http://creativecommons.org/licenses/by-nc-sa/3.0/')) . '</p>';
 
   return $output;

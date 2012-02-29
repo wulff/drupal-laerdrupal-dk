@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# rebuild.sh - update contrib modules, themes, and libraries
+# rebuild.sh -- update contrib modules, themes, and libraries
 
 makefile=`find . -name learn.make`
 

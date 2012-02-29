@@ -1,4 +1,4 @@
-; makefile for farouteffects.dk
+; makefile for lærdrupal.dk
 
 ; define core version and drush make compatibility
 
@@ -84,20 +84,6 @@ projects[workbench_media][version] = 1.x-dev
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.1
-
-; developer modules
-
-projects[coder][subdir] = developer
-projects[coder][version] = 1.0
-
-projects[devel][subdir] = developer
-projects[devel][version] = 1.2
-
-projects[performance][subdir] = developer
-projects[performance][version] = 1.3
-
-projects[security_review][subdir] = developer
-projects[security_review][version] = 1.0
 
 ; themes
 
